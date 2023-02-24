@@ -40,7 +40,8 @@ install: all rules
 rules:
 	echo "tty0tty" > /etc/modules-load.d/tty0tty.conf
 	${CP} 99-tty0tty.rules  /etc/udev/rules.d/
-	#service udev reload replaved by the following two lines
+	# sources: https://wiki.archlinux.org/title/udev#Loading_new_rules
+	# 'service udev reload' is replaced by the following two lines:
 	udevadm control --reload-rules
 	udevadm trigger
 	chown root:root /etc/udev/rules.d/99-tty0tty.rules
